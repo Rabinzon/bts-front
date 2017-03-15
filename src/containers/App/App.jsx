@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import './Base.css';
 import * as All from '../../redux/modules/add';
 import Button from '../../components/Button';
 import styles from './App.css';
-console.log(styles);
+
+
 class App extends React.Component {
 	render() {
 		return (
