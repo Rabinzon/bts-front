@@ -1,1 +1,7 @@
 @import "normalize.css/normalize.css";
+
+body, html, div[id='app']{
+	height: 100%;
+	font-family: Arial, Helvetica;
+}
+

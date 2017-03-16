@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('index.bundle.css');
 
-
-
 module.exports = {
 	entry: './src/index.js',
 	output: {
@@ -14,7 +12,8 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{ test: /\.jsx?$/,
+			{
+				test: /\.jsx?$/,
 				use:[
 					{ loader: 'babel-loader',
 						options : {
@@ -31,7 +30,11 @@ module.exports = {
 					fallback: "style-loader",
 					use: "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap&-minimize'"
 				})
+			}, {
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				loader: "file-loader?name=/dist/icons/[name].[ext]"
 			}
+		
 		]
 	},
 	plugins: [
