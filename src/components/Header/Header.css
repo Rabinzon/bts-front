@@ -56,3 +56,30 @@
 	height: 27px;
 }
 
+.social {
+	margin-left: auto;
+}
+
+.vk svg {
+	width: 27px;
+	height: 27px;
+	color: #fff;
+	transition: color .2s;
+}
+
+.youtube {
+	composes: vk;
+}
+.youtube svg {
+	width: 32px;
+	height: 32px;
+}
+.socialLink:hover svg {
+	color: #ffdb4d;
+	transition: color .2s;
+}
+
+.socialLink {
+	padding: 10px;
+}
+
