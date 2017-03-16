@@ -32,9 +32,8 @@ module.exports = {
 				})
 			}, {
 				test: /\.(jpe?g|png|gif|svg)$/i,
-				loader: "file-loader?name=/dist/icons/[name].[ext]"
+				use: 'file-loader?name=assets/[name].[ext]'
 			}
-		
 		]
 	},
 	plugins: [

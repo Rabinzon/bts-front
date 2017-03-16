@@ -45,8 +45,14 @@
 }
 
 .logo {
-	text-transform: uppercase;
-	font-weight: 700;
+	font-size: 18px;
 	text-decoration: none;
 	color: #ffffff;
 }
+
+.icon svg {
+	color: #ffffff;
+	width: 35px;
+	height: 27px;
+}
+
