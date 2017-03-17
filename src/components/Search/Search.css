@@ -11,6 +11,16 @@
 }
 
 .input:focus {
-  width: 400px;
-  transition: width 0.2s ease;
+	width: 300px;
+	transition: width 0.2s ease;
+}
+
+@media screen and (max-width: 940px){
+	.input {
+		width: 200px;
+	}
+	.input:focus {
+		width: 200px;
+		transition: width 0.2s ease;
+	}
 }

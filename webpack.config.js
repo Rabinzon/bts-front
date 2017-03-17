@@ -19,7 +19,8 @@ module.exports = {
 						options : {
 							presets : [
 								"react",
-								"es2015"
+								"es2015",
+								"babel-preset-stage-0"
 							]
 						}
 					},

@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import { createReducer } from 'redux-act';
 
-import addReducer from './add';
+import movies from './movies';
 
 const reducer = combineReducers({
-	counter: addReducer
+	movies
 });
 
 export default reducer;

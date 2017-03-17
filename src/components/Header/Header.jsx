@@ -14,7 +14,6 @@ class Header extends React.Component {
 			<header className={styles.wrap}>
 				<div className={styles.header}>
 					<Container>
-						
 						<div className={styles.content}>
 							<Isvg className={styles.icon} src={microphone}></Isvg>
 							<a href='/' className={styles.logo}>Безнең тәҗрибә</a>
