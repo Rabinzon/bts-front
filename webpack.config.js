@@ -10,6 +10,11 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].bundle.js'
 	},
+	resolve: {
+		alias: {
+			'app-config': path.resolve(__dirname, 'config.json')
+		}
+	},
 	module: {
 		rules: [
 			{

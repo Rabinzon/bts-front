@@ -1,4 +1,5 @@
 import axios from 'axios';
+import CONFIG from 'app-config';
 import { createAction, createReducer } from 'redux-act';
 
 const initState = {
@@ -8,9 +9,8 @@ const initState = {
 	data: null,
 	movies: null,
 };
-const API = 'http://bts.tatar:1323';
 
-const get = () => axios.get(API);
+const get = () => axios.get(CONFIG.api);
 
 export const fetch = createAction('MOVIES', get);
 
