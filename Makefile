@@ -6,4 +6,4 @@ comp:
 cont:
 	mkdir src/containers/${name};
 	touch src/containers/${name}/${name}.jsx;
-	echo "import ${name} from './${name}.jsx';\n\nexport default ${name};" >> src/container/${name}/index.js
+	echo "import ${name} from './${name}.jsx';\n\nexport default ${name};" >> src/containers/${name}/index.js

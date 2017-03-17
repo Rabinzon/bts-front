@@ -1,0 +1,26 @@
+.input {
+  margin: 0;
+  padding: 7px;
+  font-size: 1em;
+  background-color: #FFFFFF;
+  border: 2px solid #ffdb4d;
+  outline: none;
+  color: rgba(0,0,0,0.7);
+  width: 222px;
+  transition: width 0.2s ease;
+}
+
+.input:focus {
+	width: 300px;
+	transition: width 0.2s ease;
+}
+
+@media screen and (max-width: 940px){
+	.input {
+		width: 200px;
+	}
+	.input:focus {
+		width: 200px;
+		transition: width 0.2s ease;
+	}
+}

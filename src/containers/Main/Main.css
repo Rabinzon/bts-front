@@ -1,0 +1,53 @@
+.wrap {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.content {
+	display: flex;
+	flex: 1;
+	padding-bottom: 150px;
+}
+
+.logo {
+	width: 100%;
+	height: 400px;
+	background: url('../../assets/bts.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+.showWrapper {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.toolbar {
+	padding-bottom: 10px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-left: 45px;
+	margin-right: 45px;
+	margin-bottom: 45px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.count {
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: -2px;
+	display: none;
+}
+
+.left {
+	position: relative;
+	top: 10px;
+	display: flex;
+	align-items: center;
+	width: 40%;
+	justify-content: space-between;
+}

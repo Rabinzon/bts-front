@@ -1,7 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const path = require('path');
+const webpconstack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractCSS = new ExtractTextPlugin('index.bundle.css');
 
 module.exports = {
@@ -10,15 +10,22 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].bundle.js'
 	},
+	resolve: {
+		alias: {
+			'app-config': path.resolve(__dirname, 'config.json')
+		}
+	},
 	module: {
 		rules: [
-			{ test: /\.jsx?$/,
+			{
+				test: /\.jsx?$/,
 				use:[
 					{ loader: 'babel-loader',
 						options : {
 							presets : [
 								"react",
-								"es2015"
+								"es2015",
+								"babel-preset-stage-0"
 							]
 						}
 					},
@@ -29,6 +36,9 @@ module.exports = {
 					fallback: "style-loader",
 					use: "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&sourceMap&-minimize'"
 				})
+			}, {
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				use: 'file-loader?name=assets/[name].[ext]'
 			}
 		]
 	},

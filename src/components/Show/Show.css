@@ -1,0 +1,73 @@
+.show {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 18px 65px 18px;
+	position: relative;
+	width: 200px;
+	height: 300px;
+	position: relative;
+	text-decoration: none;
+}
+
+.img {
+	margin: auto;
+	border-radius: 2px;
+	width: 100%;
+	height: 100%;
+}
+
+.name {
+	margin-top: 0;
+	padding-top: 0.5em;
+	font-size: 16px;
+	max-width: 200px;
+	color: #2D2D2D;
+	text-decoration: none;
+	line-height: 18px;
+	text-align: center;
+}
+.show:hover {
+	cursor: pointer;
+}
+
+.show:hover .info {
+	opacity: 1;
+	transition: opacity 0.1s;
+}
+
+.info {
+	border-radius: 2px;
+	background-color: rgba(0,0,0,0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 300px;
+	color: white;
+	opacity: 0;
+	overflow: hidden;
+	font-style: italic;
+	transition: opacity 0.2s;
+}
+
+.title {
+	font-weight: bold;
+	text-align: center;
+	padding-top: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.text {
+	line-height: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	max-height: 233px;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+a:hover, a:focus {
+	text-decoration: none;
+}

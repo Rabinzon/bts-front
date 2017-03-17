@@ -1,0 +1,85 @@
+.wrap {
+	height: 40px;
+	width: 100%;
+	color: #fff;
+}
+
+.header {
+	background-color: #2e353d;
+	position: fixed;
+	height: 40px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+}
+
+.menu {
+	margin: 0;
+	display: flex;
+}
+
+.link {
+	color: #99abb6;
+	text-decoration: none;
+	height: 40px;
+	display: block;
+	line-height: 40px;
+	font-size: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.link:hover {
+	color: #ffffff;
+}
+
+.active {
+	color: #ffffff;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+	font-size: 18px;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.icon svg {
+	color: #ffffff;
+	width: 35px;
+	height: 27px;
+}
+
+.social {
+	margin-left: auto;
+}
+
+.vk svg {
+	width: 27px;
+	height: 27px;
+	color: #fff;
+	transition: color .2s;
+}
+
+.youtube {
+	composes: vk;
+}
+.youtube svg {
+	width: 32px;
+	height: 32px;
+}
+.socialLink:hover svg {
+	color: #ffdb4d;
+	transition: color .2s;
+}
+
+.socialLink {
+	padding: 10px;
+}
+
