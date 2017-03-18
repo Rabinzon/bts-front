@@ -38,7 +38,7 @@ const filter = (state, payload) =>
 const filterById = (state, payload) =>
 	({...state, current: state.data.filter(item => item.ID === payload)[0]});
 
-const addReducer = createReducer( on => {
+const addReducer = createReducer(on => {
 	on(PENDING, pending);
 	on(FULFILLED, success);
 	on(REJECTED, error);

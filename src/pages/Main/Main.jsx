@@ -15,14 +15,13 @@ class Main extends React.Component {
 	search = ({currentTarget: {value}}) => {
 		this.props.search(value);
 	}
-	
+
 	componentDidMount() {
 		this.props.fetch();
 	}
-	
+
 	render() {
 		const {movies, fetched} = this.props;
-		console.log(this.props);
 		return (
 			<div className={styles.wrap}>
 				<div className={styles.content}>
