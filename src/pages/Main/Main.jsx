@@ -7,7 +7,10 @@ import Search from '../../components/Search';
 import Show from '../../components/Show';
 import Tabs from '../../components/Tabs';
 
+import classNames from 'helpers/classNames';
 import styles from './Main.css';
+
+const cn = classNames(styles);
 
 const list = ['барсыда', 'кино', 'мультфильм', 'сериал'];
 
@@ -23,18 +26,18 @@ class Main extends React.Component {
 	render() {
 		const {movies, fetched} = this.props;
 		return (
-			<div className={styles.wrap}>
-				<div className={styles.content}>
+			<div className={cn('wrap')}>
+				<div className={cn('content')}>
 					<Container>
-						<div className={styles.logo}></div>
-						<div className={styles.toolbar}>
-							<div className={styles.left}>
-								<div className={styles.count}>фильм</div>
+						<div className={cn('logo')}></div>
+						<div className={cn('toolbar')}>
+							<div className={cn('left')}>
+								<div className={cn('count')}>фильм</div>
 								<Tabs list={list}/>
 							</div>
 							<Search handle={this.search} />
 						</div>
-						<div className={styles.showWrapper}>
+						<div className={cn('showWrapper')}>
 							{fetched ?
 								movies.map((item, i) => <Show data={item} key={i} />)
 								: 'Loading...'

@@ -5,28 +5,31 @@ import microphone from '../../assets/microphone.svg';
 import vk from '../../assets/vk.svg';
 import youtube from '../../assets/youtube.svg';
 import { Link } from 'react-router';
+import classNames from 'helpers/classNames';
+import CONFIG from 'app-config';
 import styles from './Header.css';
 
+const cn = classNames(styles);
 
 class Header extends React.Component {
 	render() {
 		return (
-			<header className={styles.wrap}>
-				<div className={styles.header}>
+			<header className={cn('wrap')}>
+				<div className={cn('header')}>
 					<Container>
-						<div className={styles.content}>
-							<Isvg className={styles.icon} src={microphone}></Isvg>
-							<a href='/' className={styles.logo}>Безнең тәҗрибә</a>
-							<menu className={styles.menu}>
-								<Link to='/' className={[styles.link, styles.active].join(' ')}>Фильмнар</Link>
-								<Link to='/' className={styles.link}>Безнең хакта</Link>
+						<div className={cn('content')}>
+							<Isvg className={cn('icon')} src={microphone}></Isvg>
+							<a href='/' className={cn('logo')}>Безнең тәҗрибә</a>
+							<menu className={cn('menu')}>
+								<Link to='/' className={cn('link', 'active')}>Фильмнар</Link>
+								<Link to='/' className={cn('link')}>Безнең хакта</Link>
 							</menu>
-							<div className={styles.social}>
-								<a className={styles.socialLink} href='https://www.youtube.com/channel/UCDCaB11-PTI3dZyTBG7CylA'>
-									<Isvg className={styles.youtube} src={youtube}></Isvg>
+							<div className={cn('social')}>
+								<a className={cn('socialLink')} href={CONFIG.youtubeLink}>
+									<Isvg className={cn('youtube')} src={youtube}></Isvg>
 								</a>
-								<a className={styles.socialLink} href='https://vk.com/beztejribe'>
-									<Isvg className={styles.vk} src={vk}></Isvg>
+								<a className={cn('socialLink')} href={CONFIG.vkLink}>
+									<Isvg className={cn('vk')} src={vk}></Isvg>
 								</a>
 							</div>
 						</div>
