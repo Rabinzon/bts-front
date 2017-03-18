@@ -12,7 +12,8 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			'app-config': path.resolve(__dirname, 'config.json')
+			'app-config': path.resolve(__dirname, 'config.json'),
+			'helpers': path.resolve(__dirname, 'src/helpers')
 		}
 	},
 	module: {
