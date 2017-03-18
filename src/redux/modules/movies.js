@@ -8,6 +8,7 @@ const initState = {
 	fetched: false,
 	data: null,
 	movies: null,
+	current: null
 };
 
 const get = () => axios.get(CONFIG.api);
@@ -15,6 +16,8 @@ const get = () => axios.get(CONFIG.api);
 export const fetch = createAction('MOVIES', get);
 
 export const search = createAction('MOVIES_FILTER');
+
+export const getById = createAction('MOVIES_FILTER_BY_ID');
 
 export const PENDING = createAction('MOVIES_PENDING');
 export const FULFILLED = createAction('MOVIES_FULFILLED');
@@ -32,11 +35,15 @@ const error = () => (state, payload) =>
 const filter = (state, payload) =>
 	({...state, movies: state.data.filter(item => new RegExp(payload, 'gi').test(item.Title))});
 
+const filterById = (state, payload) =>
+	({...state, current: state.data.filter(item => item.ID === payload)[0]});
+
 const addReducer = createReducer( on => {
 	on(PENDING, pending);
 	on(FULFILLED, success);
 	on(REJECTED, error);
 	on(search, filter);
+	on(getById, filterById);
 }, initState);
 
 export default addReducer;

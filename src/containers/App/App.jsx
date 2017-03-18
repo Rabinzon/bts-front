@@ -1,6 +1,6 @@
 import React from 'react';
 import './Base.css';
-import Main from '../../containers/Main';
+import Movie from '../../containers/Movie';
 import styles from './App.css';
 
 
@@ -8,7 +8,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className={styles.wrap}>
-				<Main />
+				{this.props.children}
 			</div>
 		)
 	}
