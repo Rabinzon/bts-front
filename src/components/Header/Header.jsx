@@ -4,7 +4,7 @@ import Container from '../Container';
 import microphone from '../../assets/microphone.svg';
 import vk from '../../assets/vk.svg';
 import youtube from '../../assets/youtube.svg';
-
+import { Link } from 'react-router';
 import styles from './Header.css';
 
 
@@ -18,8 +18,8 @@ class Header extends React.Component {
 							<Isvg className={styles.icon} src={microphone}></Isvg>
 							<a href='/' className={styles.logo}>Безнең тәҗрибә</a>
 							<menu className={styles.menu}>
-								<a href='/' className={[styles.link, styles.active].join(' ')}>Фильмнар</a>
-								<a href='/' className={styles.link}>Безнең хакта</a>
+								<Link to='/' className={[styles.link, styles.active].join(' ')}>Фильмнар</Link>
+								<Link to='/' className={styles.link}>Безнең хакта</Link>
 							</menu>
 							<div className={styles.social}>
 								<a className={styles.socialLink} href='https://www.youtube.com/channel/UCDCaB11-PTI3dZyTBG7CylA'>

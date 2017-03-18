@@ -1,11 +1,12 @@
 import React, {Component, PropTypes} from 'react';
+import { Link } from 'react-router';
 
 export default class Show extends Component {
 	render() {
 		const {data} = this.props; // eslint-disable-line no-shadow
 		const styles = require('./Show.css');
 		return (
-			<a href={`${data.Href}?id=${data.ID}`}>
+			<Link to={'/movie/'+ data.ID}>
 				<div className={styles.show}>
 					<img className={styles.img} src={data.Img}/>
 					<p className={styles.name}>{data.Title}</p>
@@ -14,7 +15,7 @@ export default class Show extends Component {
 						<p className={styles.text}>{data.Text}</p>
 					</div>
 				</div>
-			</a>
+			</Link>
 		);
 	}
 }

@@ -8,7 +8,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className={styles.wrap}>
-				<Movie />
+				{this.props.children}
 			</div>
 		)
 	}
