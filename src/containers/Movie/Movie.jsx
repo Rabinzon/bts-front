@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getById} from '../../redux/modules/movies';
 import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 
 import styles from './Movie.css';
 
@@ -23,7 +21,6 @@ class Movie extends React.Component {
 		const {current} = this.props;
 		return (
 			<div className={styles.wrap}>
-				<Header />
 				<div className={styles.content}>
 					<Container>
 						{current ?
@@ -60,7 +57,6 @@ class Movie extends React.Component {
 						: 'Loading...'}
 					</Container>
 				</div>
-				<Footer />
 			</div>
 		)
 	}

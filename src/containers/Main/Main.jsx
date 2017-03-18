@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {fetch, search} from '../../redux/modules/movies';
 import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import Search from '../../components/Search';
 import Show from '../../components/Show';
 import Tabs from '../../components/Tabs';
@@ -27,7 +25,6 @@ class Main extends React.Component {
 		console.log(this.props);
 		return (
 			<div className={styles.wrap}>
-				<Header />
 				<div className={styles.content}>
 					<Container>
 						<div className={styles.logo}></div>
@@ -46,7 +43,6 @@ class Main extends React.Component {
 						</div>
 					</Container>
 				</div>
-				<Footer />
 			</div>
 		)
 	}
