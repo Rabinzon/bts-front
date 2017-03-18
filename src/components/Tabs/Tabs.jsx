@@ -1,22 +1,32 @@
 import React from 'react';
+import classNames from 'helpers/classNames';
 import styles from './Tabs.css';
+
+const cn = classNames(styles);
 
 class Tabs extends React.Component {
 	state = {
 		active: 0
 	}
-	
-	onClick = active => () => {
-		this.setState({active})
-	}
+
+	onClick = active => () =>
+		this.setState({active});
+
+	renderLinks = ({active}) => (text, i) =>
+		<a key={i}
+			onClick={this.onClick(i)}
+			className={cn({
+				active: i === active,
+				tab: true
+			})}>
+			{text}
+		</a>;
 
 	render() {
 		const {list} = this.props;
-		const {active} = this.state;
-		
 		return (
-			<div className={styles.tabs}>
-				{list.map((text, index) => <a onClick={this.onClick(index)} className={index === active ? styles.active : styles.tab} key={index}>{text}</a>)}
+			<div className={cn('tabs')}>
+				{list.map(this.renderLinks(this.state))}
 			</div>
 		);
 	}
