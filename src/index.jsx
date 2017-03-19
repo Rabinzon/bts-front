@@ -1,24 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute} from 'react-router';
+import { Router, browserHistory} from 'react-router';
 
 import store from './redux/create';
-import App from './containers/App';
-import Main from './pages/Main';
-import Movie from './pages/Movie';
-import About from './pages/About';
+import routes from './routes.jsx';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<Router history={browserHistory}>
-			<Route component={App}>
-				<Route path="/" component={Main}/>
-				<Route path="movie/:id" component={Movie} />
-				<Route path="about" component={About} />
-			</Route>
-		</Router>
-		
+		<Router routes={routes()} history={browserHistory} />
 	</Provider>,
-	document.getElementById('app') // eslint-disable-line no-undef
+	document.getElementById('app')
 );
