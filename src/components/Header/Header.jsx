@@ -19,10 +19,10 @@ class Header extends React.Component {
 					<Container>
 						<div className={cn('content')}>
 							<Isvg className={cn('icon')} src={microphone}></Isvg>
-							<a href='/' className={cn('logo')}>Безнең тәҗрибә</a>
+							<Link to='/' className={cn('logo')}>Безнең тәҗрибә</Link>
 							<menu className={cn('menu')}>
-								<Link to='/' className={cn('link', 'active')}>Фильмнар</Link>
-								<Link to='/' className={cn('link')}>Безнең хакта</Link>
+								<Link to='/' className={cn('link')} activeClassName={cn('active')}>Фильмнар</Link>
+								<Link to='/about' className={cn('link')} activeClassName={cn('active')}>Безнең хакта</Link>
 							</menu>
 							<div className={cn('social')}>
 								<a className={cn('socialLink')} href={CONFIG.youtubeLink}>
