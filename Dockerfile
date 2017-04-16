@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:6
 WORKDIR /bts
 ADD . /bts
-RUN npm install
+RUN npm install && npm run build
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["node", "dist/server.js"]
