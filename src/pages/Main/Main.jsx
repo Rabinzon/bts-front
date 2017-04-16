@@ -13,10 +13,10 @@ import styles from './Main.css';
 const cn = classNames(styles);
 
 const list = [
-	{text: 'барсыда', val: 'all'},
-	{text: 'кино', val: 'movie'},
-	{text: 'мультфильм', val: 'cartoon'},
-	{text: 'документаль', val: 'doc'}
+	{text: 'Бөтенесе', val: 'all'},
+	{text: 'Фильмнар', val: 'movie'},
+	{text: 'Мультфильмнар', val: 'cartoon'},
+	{text: 'Док. фильмнар', val: 'doc'}
 ];
 
 class Main extends React.Component {
