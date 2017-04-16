@@ -1,0 +1,7 @@
+bts-front:
+    build: .
+    container_name: bts-front
+    hostname: bts-front
+    restart: always
+    ports:
+        - "8080:8080"
