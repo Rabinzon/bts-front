@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "nodemon \"./dist/server.js\" --watch \"./dist\""
   },
   "author": "Ildar <ildarrazin@gmail.com>",
   "license": "ISC",
@@ -18,12 +20,15 @@
     "babel-preset-stage-0": "^6.22.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.27.3",
+    "express": "^4.15.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "html-webpack-plugin": "^2.28.0",
     "html-webpack-template": "^6.0.1",
     "logger": "0.0.1",
+    "nodemon": "^1.11.0",
     "normalize.css": "^5.0.0",
+    "npm-run-all": "^4.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-inlinesvg": "^0.5.5",

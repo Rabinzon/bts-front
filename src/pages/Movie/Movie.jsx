@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {getById} from '../../redux/modules/movies';
+import {fetchOne} from '../../redux/modules/movie';
 import Container from '../../components/Container';
 
 import classNames from 'helpers/classNames';
@@ -16,13 +16,14 @@ class Movie extends React.Component {
 	}
 
 	componentDidMount() {
-		const {location: {pathname}, getById} = this.props;
+		const {location: {pathname}, fetchOne} = this.props;
 		const id = pathname.replace('/movie/', '');
-		getById(id);
+		fetchOne(id);
+
 	}
 
 	render() {
-		const {current} = this.props;
+		const {movie: current} = this.props;
 		return (
 			<div className={cn('wrap')}>
 				<div className={cn('content')}>
@@ -67,6 +68,6 @@ class Movie extends React.Component {
 }
 
 export default connect(
-	({movies}) => ({...movies}),
-	dispatch => bindActionCreators({getById}, dispatch))
+	({movie}) => ({...movie}),
+	dispatch => bindActionCreators({fetchOne}, dispatch))
 (Movie);

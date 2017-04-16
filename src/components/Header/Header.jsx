@@ -1,9 +1,9 @@
 import React from 'react';
 import Isvg from 'react-inlinesvg';
 import Container from '../Container';
-import microphone from '../../assets/microphone.svg';
-import vk from '../../assets/vk.svg';
-import youtube from '../../assets/youtube.svg';
+import microphone from '../../static/assets/microphone.svg';
+import vk from '../../static/assets/vk.svg';
+import youtube from '../../static/assets/youtube.svg';
 import { Link } from 'react-router';
 import classNames from 'helpers/classNames';
 import CONFIG from 'app-config';
@@ -36,7 +36,6 @@ class Header extends React.Component {
 					</Container>
 				</div>
 			</header>
-			
 		)
 	}
 }
