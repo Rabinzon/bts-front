@@ -59,6 +59,13 @@
 	}
 }
 
+
+@media screen and (max-width: 780px) {
+	.search { 
+		display: none;
+	}
+}
+
 @media screen and (max-width: 680px) {
 	.search, .toolbar {
 		display: none;

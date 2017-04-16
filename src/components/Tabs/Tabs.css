@@ -12,6 +12,7 @@
 	font-weight: 700;
 	cursor: pointer;
 	transition: color .2s;
+	white-space: nowrap;
 	border: 1px solid transparent;
 }
 
