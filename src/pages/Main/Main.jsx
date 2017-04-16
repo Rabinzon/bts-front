@@ -29,7 +29,6 @@ class Main extends React.Component {
 			<div className={cn('wrap')}>
 				<div className={cn('content')}>
 					<Container>
-						<div className={cn('logo')}></div>
 						<div className={cn('toolbar')}>
 							<div className={cn('left')}>
 								<div className={cn('count')}>фильм</div>
