@@ -17,6 +17,7 @@ const renderFullPage = html => {
     <!DOCTYPE html>
     <html>
       <head>
+	  	<meta name="viewport" content="width=device-width">
         <title></title>
           **<base href="/" />**
          <link href="static/main.css" rel="stylesheet" type="text/css" charSet="UTF-8">

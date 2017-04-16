@@ -34,7 +34,9 @@ class Main extends React.Component {
 								<div className={cn('count')}>фильм</div>
 								<Tabs list={list}/>
 							</div>
-							<Search handle={this.search} />
+							<div className={cn('search')}>
+								<Search handle={this.search} />
+							</div>
 						</div>
 						<div className={cn('showWrapper')}>
 							{fetched ?

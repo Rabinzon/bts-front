@@ -17,6 +17,8 @@
 .content {
 	display: flex;
 	align-items: center;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .menu {
@@ -86,3 +88,18 @@
 	padding: 10px;
 }
 
+@media screen and (max-width: 570px) {
+	.social {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.logo {
+		display: none;
+	}
+
+	.menu {
+		padding-left: 3px;
+	}
+}

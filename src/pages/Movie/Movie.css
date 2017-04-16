@@ -7,7 +7,7 @@
 
 .flex {
 	display: flex;
-	padding: 70px 0 20px;
+	padding: 70px 10px 20px;
 }
 
 .content {
@@ -61,4 +61,12 @@
 .video video {
 	width: 100%;
 	height: 100%;
+}
+
+
+@media screen and (max-width: 680px) {
+	.flex {
+		display: block;
+		padding: 10px;
+	}
 }
