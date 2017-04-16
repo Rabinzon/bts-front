@@ -35,15 +35,11 @@ const error = () => (state, payload) =>
 const filter = (state, payload) =>
 	({...state, movies: state.data.filter(item => new RegExp(payload, 'gi').test(item.Title))});
 
-const filterById = (state, payload) =>
-	({...state, current: state.data.filter(item => item.ID === payload)[0]});
-
 const addReducer = createReducer(on => {
 	on(PENDING, pending);
 	on(FULFILLED, success);
 	on(REJECTED, error);
 	on(search, filter);
-	on(getById, filterById);
 }, initState);
 
 export default addReducer;

@@ -13,7 +13,7 @@
 .logo {
 	width: 100%;
 	height: 400px;
-	background: url('../../assets/bts.jpg');
+	background: url('../../static/assets/bts.jpg');
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50%;

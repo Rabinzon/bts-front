@@ -1,6 +1,5 @@
 const path = require('path');
-const webpconstack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = [
@@ -41,7 +40,7 @@ module.exports = [
 					})
 				}, {
 					test: /\.(jpe?g|png|gif|svg)$/i,
-					use: 'file-loader?name=assets/[name].[ext]'
+					use: 'file-loader?name=./static/assets/[name].[ext]'
 				}
 			]
 		},
@@ -90,7 +89,7 @@ module.exports = [
 					})
 				}, {
 					test: /\.(jpe?g|png|gif|svg)$/i,
-					use: 'file-loader?name=static/assets/[name].[ext]'
+					use: 'file-loader?name=./static/assets/[name].[ext]'
 				}
 			]
 		},

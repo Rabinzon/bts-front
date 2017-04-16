@@ -1,15 +1,16 @@
 import path from 'path'
-import Express from 'express'
 import React from 'react'
+import Express from 'express'
 import { match, RouterContext } from 'react-router'
 import routes from './routes.jsx';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './redux/modules/reducer'
 import { renderToString } from 'react-dom/server'
+import CONF  from 'app-config';
 const app = Express();
 
-app.use(Express.static(__dirname + '/static'));
+app.use('/static', Express.static(__dirname + '/static'));
 
 const renderFullPage = html => {
 	return `
@@ -18,11 +19,11 @@ const renderFullPage = html => {
       <head>
         <title></title>
           **<base href="/" />**
-         <link href="main.css" rel="stylesheet" type="text/css" charSet="UTF-8">
+         <link href="static/main.css" rel="stylesheet" type="text/css" charSet="UTF-8">
       </head>
       <body>
         <div id="app">${html}</div>
-        <script src="client.js"></script>
+        <script src="static/client.js"></script>
       </body>
     </html>
     `
@@ -42,5 +43,4 @@ const handleRender = (req, res) => {
 };
 
 app.use(handleRender);
-
-app.listen(4443);
+app.listen(CONF.port);
