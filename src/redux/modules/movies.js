@@ -19,6 +19,8 @@ export const search = createAction('MOVIES_FILTER');
 
 export const getById = createAction('MOVIES_FILTER_BY_ID');
 
+export const filterByTag = createAction('MOVIES_FILTER_TABS');
+
 export const PENDING = createAction('MOVIES_PENDING');
 export const FULFILLED = createAction('MOVIES_FULFILLED');
 export const REJECTED = createAction('MOVIES_REJECTED');
@@ -35,11 +37,23 @@ const error = () => (state, payload) =>
 const filter = (state, payload) =>
 	({...state, movies: state.data.filter(item => new RegExp(payload, 'gi').test(item.Title))});
 
+const filterTabs = (state, payload) =>
+	({...state, movies: state.data.filter(item => {
+		if (payload === 'all')	{
+			return item;
+		}
+		if (item.Tag && payload === item.Tag) {
+			return item;
+		}
+		return null;
+	})});
+
 const addReducer = createReducer(on => {
 	on(PENDING, pending);
 	on(FULFILLED, success);
 	on(REJECTED, error);
 	on(search, filter);
+	on(filterByTag, filterTabs);
 }, initState);
 
 export default addReducer;

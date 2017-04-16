@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {fetch, search} from '../../redux/modules/movies';
+import {fetch, search, filterByTag} from '../../redux/modules/movies';
 import Container from '../../components/Container';
 import Search from '../../components/Search';
 import Show from '../../components/Show';
@@ -12,7 +12,12 @@ import styles from './Main.css';
 
 const cn = classNames(styles);
 
-const list = ['барсыда', 'кино', 'мультфильм', 'сериал'];
+const list = [
+	{text: 'барсыда', val: 'all'},
+	{text: 'кино', val: 'movie'},
+	{text: 'мультфильм', val: 'cartoon'},
+	{text: 'документаль', val: 'doc'}
+];
 
 class Main extends React.Component {
 	search = ({currentTarget: {value}}) => {
@@ -24,7 +29,7 @@ class Main extends React.Component {
 	}
 
 	render() {
-		const {movies, fetched} = this.props;
+		const {movies, fetched, filterByTag} = this.props;
 		return (
 			<div className={cn('wrap')}>
 				<div className={cn('content')}>
@@ -32,7 +37,7 @@ class Main extends React.Component {
 						<div className={cn('toolbar')}>
 							<div className={cn('left')}>
 								<div className={cn('count')}>фильм</div>
-								<Tabs list={list}/>
+								<Tabs handler={filterByTag} list={list}/>
 							</div>
 							<div className={cn('search')}>
 								<Search handle={this.search} />
@@ -53,5 +58,5 @@ class Main extends React.Component {
 
 export default connect(
 	({movies}) => ({...movies}),
-	dispatch => bindActionCreators({fetch, search}, dispatch))
+	dispatch => bindActionCreators({fetch, search, filterByTag}, dispatch))
 (Main);

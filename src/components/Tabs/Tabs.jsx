@@ -6,17 +6,19 @@ const cn = classNames(styles);
 
 class Tabs extends React.Component {
 	state = {
-		active: 0
+		active: 'all'
 	}
 
-	onClick = active => () =>
+	onClick = active => () => {
+		this.props.handler(active);
 		this.setState({active});
+	}
 
-	renderLinks = ({active}) => (text, i) =>
+	renderLinks = ({active}) => ({text, val}, i) =>
 		<a key={i}
-			onClick={this.onClick(i)}
+			onClick={this.onClick(val)}
 			className={cn({
-				active: i === active,
+				active: val === active,
 				tab: true
 			})}>
 			{text}
