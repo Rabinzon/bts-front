@@ -13,7 +13,9 @@ class App extends React.Component {
 		return (
 			<div className={cn('wrap')}>
 				<Header/>
-				{this.props.children}
+					<div className={cn('content')}>
+						{this.props.children}
+					</div>
 				<Footer/>
 			</div>
 		)

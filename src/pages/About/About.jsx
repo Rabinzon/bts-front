@@ -10,7 +10,10 @@ class About extends React.Component {
 	render() {
 		return (
 			<div className={cn('wrap')}>
-				<Container>
+				<Container theme='wrapper'>
+					<br/>
+					<br/>
+					<br/>
 					<h2>Безнең хакта</h2>
 					<br/>
 					<strong>"Безнең тәҗрибә"</strong> — коммерциясе булмаган чит телле видеоларны татарчага тәрҗемә итеп тавышлау (озвучка),

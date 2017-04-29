@@ -23,6 +23,7 @@ class Header extends React.Component {
 							<menu className={cn('menu')}>
 								<Link to='/' className={cn('link')} activeClassName={cn('active')}>Фильмнар</Link>
 								<Link to='/about' className={cn('link')} activeClassName={cn('active')}>Безнең хакта</Link>
+								<Link to='/sponsors' className={cn('link')} activeClassName={cn('active')}>Спонсорлар</Link>
 							</menu>
 							<div className={cn('social')}>
 								<a className={cn('socialLink')} href={CONFIG.youtubeLink}>

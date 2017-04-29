@@ -1,0 +1,20 @@
+.wrap {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.content {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.person {
+	padding-top: 10px;
+	font-size: 18px;
+}
+
+.title {
+	font-size: 1.9em;
+}

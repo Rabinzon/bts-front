@@ -11,15 +11,11 @@ const cn = classNames(styles);
 
 
 class Movie extends React.Component {
-	search = ({currentTarget: {value}}) => {
-		this.props.search(value);
-	}
 
 	componentDidMount() {
 		const {location: {pathname}, fetchOne} = this.props;
 		const id = pathname.replace('/movie/', '');
 		fetchOne(id);
-
 	}
 
 	render() {
@@ -51,7 +47,7 @@ class Movie extends React.Component {
 								<div className={cn('title')}>{current.Title}</div>
 								<div className={cn('text')} dangerouslySetInnerHTML={{__html: current.Text.replace(/\n/g, '<br/> <br/>')}}></div>
 								<div className={cn('video')}>
-									<video controls src={current.Video} poster="https://pp.userapi.com/c836234/v836234535/1eb39/izNT3hEXIpA.jpg"></video>
+									<video controls src={current.Video} poster="/static/assets/bts.jpg"></video>
 								</div>
 								<br/>
 								<div id="vk_like"></div>
