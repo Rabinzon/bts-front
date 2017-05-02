@@ -8,7 +8,13 @@
 	position: relative;
 	text-decoration: none;
 }
-
+.play {
+	fill: #fff;
+}
+.play svg {
+	width: 80px;
+	height: 80px;
+}
 .img {
 	margin: auto;
 	border-radius: 2px;
@@ -48,6 +54,9 @@
 	overflow: hidden;
 	font-style: italic;
 	transition: opacity 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .title {

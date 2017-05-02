@@ -28,7 +28,7 @@ const renderFullPage = html => {
 				<link rel="shortcut icon" href="/static/assets/favicon.ico">
 				<meta name="msapplication-config" content="/static/assets/browserconfig.xml">
 				<meta name="theme-color" content="#ffffff">
-		        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		        <link href="static/main.css" rel="stylesheet" type="text/css" charSet="UTF-8">
 	        </head>
 	        <body>
