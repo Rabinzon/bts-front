@@ -35,14 +35,14 @@ const error = () => (state, payload) =>
 	({...state, fetching: false, fetched: false, error: payload});
 
 const filter = (state, payload) =>
-	({...state, movies: state.data.filter(item => new RegExp(payload, 'gi').test(item.Title))});
+	({...state, movies: state.data.filter(item => new RegExp(payload, 'gi').test(item.title))});
 
 const filterTabs = (state, payload) =>
 	({...state, movies: state.data.filter(item => {
 		if (payload === 'all')	{
 			return item;
 		}
-		if (item.Tag && payload === item.Tag) {
+		if (item.tag && payload === item.tag) {
 			return item;
 		}
 		return null;

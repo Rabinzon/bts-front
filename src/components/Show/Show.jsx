@@ -10,13 +10,15 @@ const cn = classNames(styles);
 export default class Show extends Component {
 	render() {
 		const {
-			data: {ID, Img, Title, Text}
+			data: {
+				name, img, title
+			}
 		} = this.props;
 		return (
-			<Link to={'/movie/'+ ID}>
+			<Link to={'/movie/'+ name}>
 				<div className={cn('show')}>
-					<img className={cn('img')} src={Img}/>
-					<p className={cn('name')}>{Title}</p>
+					<img className={cn('img')} src={img}/>
+					<p className={cn('name')}>{title}</p>
 					<div className={cn('info')}>
 						<Isvg className={cn('play')} src={playIcon}></Isvg>
 					</div>

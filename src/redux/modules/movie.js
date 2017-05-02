@@ -10,7 +10,7 @@ const initState = {
 };
 
 
-const getOne = (id) => console.log(id) || axios.get(`${CONFIG.api}/movie/${id}`);
+const getOne = (id) => axios.get(`${CONFIG.api}/movie/${id}`);
 
 export const fetchOne = createAction('MOVIE', getOne);
 
