@@ -27,14 +27,16 @@
 }
 
 .toolbar {
-	padding-bottom: 10px;
 	display: flex;
+	height: 38px;
 	align-items: flex-end;
 	justify-content: space-between;
-	margin-left: 45px;
-	margin-right: 45px;
+	margin-left: 35px;
+	margin-right: 35px;
 	margin-bottom: 45px;
-	border-bottom: 1px solid #e6e6e6;
+	padding: 0 10px;
+	background-color: #e6e7ed;
+	border-radius: 3px;
 }
 
 .count {
@@ -45,12 +47,13 @@
 }
 
 .left {
-	position: relative;
-	top: 10px;
 	display: flex;
 	align-items: center;
-	width: 40%;
 	justify-content: space-between;
+}
+
+.search{
+	display: none;
 }
 
 @media screen and (max-width: 430px) {
@@ -61,7 +64,7 @@
 
 
 @media screen and (max-width: 780px) {
-	.search { 
+	.search {
 		display: none;
 	}
 }
