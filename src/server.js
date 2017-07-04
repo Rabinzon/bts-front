@@ -27,4 +27,10 @@ const handleRender = (req, res) => {
 };
 
 app.use(handleRender);
-app.listen(CONF.port);
+
+app.listen(env.PORT, (err) => {
+	if (err) {
+		console.error(err);
+	}
+	console.info('==> 💻  Open http://%s:%s in a browser to view the app.', 'localhost', env.PORT);
+});
