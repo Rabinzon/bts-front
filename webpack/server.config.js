@@ -2,6 +2,12 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const { plugins, stats } = require('./common.config');
+
+const env = process.env;
+const production = env.NODE_ENV === 'production';
 
 const rootPath =  path.resolve(__dirname, '../');
 const distPath =  path.resolve(rootPath, 'dist');
@@ -16,6 +22,7 @@ module.exports = {
 		server: entryPath
 	},
 	target: 'node',
+	stats,
 	node: {
 		__dirname: false,
 		__filename: false,
@@ -34,17 +41,8 @@ module.exports = {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				use:[
-					{ loader: 'babel-loader',
-						options : {
-							presets : [
-								"react",
-								"es2015",
-								"babel-preset-stage-0"
-							]
-						}
-					},
-				]
+				exclude: /(node_modules|bower_components)/,
+				use:[{loader: 'happypack/loader'}]
 			}, {
 				test: /\.css/,
 				loader: ExtractTextPlugin.extract({
@@ -58,7 +56,12 @@ module.exports = {
 		]
 	},
 	plugins: [
+		...plugins,
+		new CleanWebpackPlugin([distPath+'/'], {root: rootPath}),
 		new ExtractTextPlugin('./static/main.css'),
-		new CopyWebpackPlugin([{ from: './src/static/assets/favicon', to: 'static/assets/'}])
+		new CopyWebpackPlugin([{
+			from: './src/static/assets/favicon',
+			to: 'static/assets/'
+		}])
 	]
 };
