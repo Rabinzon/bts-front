@@ -8,13 +8,14 @@
     "build-server": "webpack --config webpack/server.config.js",
     "build-client": "webpack --config webpack/client.config.js",
     "build-production": "NODE_ENV=production npm-run-all build-fast",
-    "watch:client": "webpack --config webpack/webpack.config.js",
+    "watch": "npm-run-all --parallel watch:client watch:server",
+    "watch:client": "webpack --watch --config webpack/webpack.config.js",
     "watch:server": "nodemon \"./dist/server.js\" --watch \"./dist\"",
     "start": "npm-run-all watch:cleint watch:server",
     "server-forever": "forever start dist/server.js",
     "kill-forever": "forever list && forever stopall",
     "production": "npm-run-all build-production server-forever",
-    "dev": "PORT=3000 npm-run-all build-fast watch:server watch:client"
+    "dev": "PORT=3000 npm-run-all build-fast watch"
   },
   "author": "Ildar <ildarrazin@gmail.com>",
   "license": "ISC",
