@@ -54,15 +54,20 @@
 	text-decoration: none;
 	color: #ffffff;
 }
-
+.icon {
+	height: 11px;
+	margin-left: -10px;
+}
 .icon svg {
 	color: #ffffff;
 	width: 35px;
 	height: 27px;
+	margin-top: -8px;
 }
 
 .social {
 	margin-left: auto;
+	margin-top: 3px;
 }
 
 .vk svg {
@@ -91,6 +96,9 @@
 @media screen and (max-width: 570px) {
 	.social {
 		display: none;
+	}
+	.hidden {
+		display: none !important;
 	}
 }
 

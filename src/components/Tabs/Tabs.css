@@ -1,5 +1,6 @@
 .tabs {
 	display: flex;
+	padding: 0 40px;
 }
 
 .tab {
@@ -42,7 +43,19 @@
 	color: #000;
 }
 
+.item {
+	border-radius: 0 !important;
+	margin-bottom: -1px !important;
+}
+
 .active:before{
 	background: #000;
 	transition: background-color .2s;
 }
+
+@media screen and (max-width: 768px) {
+	.tabs {
+		padding: 0;
+	}
+}
+
