@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Container, Header,  Dimmer, Loader } from 'semantic-ui-react';
 import { bindActionCreators } from 'redux';
 import {fetch, search, filterByTag} from '../../redux/modules/movies';
-import Container from '../../components/Container';
 import Search from '../../components/Search';
 import Show from '../../components/Show';
 import Tabs from '../../components/Tabs';
@@ -31,26 +31,29 @@ class Main extends React.Component {
 	render() {
 		const {movies, fetched, filterByTag} = this.props;
 		return (
-			<div className={cn('wrap')}>
-				<div className={cn('content')}>
-					<Container>
-						<div className={cn('toolbar')}>
-							<div className={cn('left')}>
-								<div className={cn('count')}>фильм</div>
-								<Tabs handler={filterByTag} list={list}/>
-							</div>
-							<div className={cn('search')}>
-								<Search handle={this.search} />
-							</div>
-						</div>
-						<div className={cn('showWrapper')}>
-							{fetched ?
-								movies.map((item, i) => <Show data={item} key={i} />)
-								: 'Loading...'
-							}
-						</div>
+			<div>
+				<div className={cn('toolbar')}>
+					<Container text>
+						<Tabs handler={filterByTag} list={list}/>
 					</Container>
+					<div className={cn('search')}>
+
+					</div>
 				</div>
+				<Container text>
+					<div className={cn('search-bar')}>
+						<Header size='large'>{movies && movies.length} фильм</Header>
+						<Search handle={this.search} />
+					</div>
+					<div className={cn('showWrapper')}>
+						{fetched ?
+							movies.map((item, i) => <Show data={item} key={i} />)
+							: <Dimmer active>
+								<Loader />
+							</Dimmer>
+						}
+					</div>
+				</Container>
 			</div>
 		)
 	}

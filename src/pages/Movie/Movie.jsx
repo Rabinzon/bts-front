@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {fetchOne} from '../../redux/modules/movie';
-import Container from '../../components/Container';
+import { Header, Container, Dimmer, Loader, Button } from 'semantic-ui-react'
+import { DefaultPlayer as Video } from 'react-html5video';
+import 'react-html5video/dist/styles.css';
 
 import classNames from 'helpers/classNames';
 import styles from './Movie.css';
@@ -18,51 +20,72 @@ class Movie extends React.Component {
 		fetchOne(id);
 	}
 
+	componentWillUnmount() {
+		if (global.document) {
+			const video = global.document.querySelector('video');
+			video.pause();
+			video.preload = 'none';
+			video.parentNode.innerHTML = '';
+		}
+	}
+
 	render() {
 		const {movie: current} = this.props;
 		return (
-			<div className={cn('wrap')}>
-				<div className={cn('content')}>
-					<Container>
-						{current ?
-						<div className={cn('flex')}>
-							<div className={cn('left')}>
-								<img src={current.img} className={cn('img')} alt=""/>
-								<div className={cn('info')}>
-									<div className={cn('field')}>
-										<span className={cn('fieldName')}>Чыгу елы:</span>
-										<span>{current.year}.</span>
-									</div>
-									<div className={cn('field')}>
-										<span className={cn('fieldName')}>Жанр:</span>
-										<span>{current.genres}.</span>
-									</div>
-									<div className={cn('field')}>
-										<span className={cn('fieldName')}>Дәвамы:</span>
-										<span>{current.time} мин.</span>
-									</div>
-									<div className={cn('field')}>
-										<span className={cn('fieldName')}>Тавышлау:</span>
-										<span>{current.voice}.</span>
-									</div>
+			<Container>
+				{current ?
+					<div className={cn('flex')}>
+						<div className={cn('left')}>
+							<img src={current.img} className={cn('img')} alt=""/>
+							<div className={cn('info')}>
+								<div className={cn('field')}>
+									<span className={cn('fieldName')}>Чыгу елы:</span>
+									<span>{current.year}.</span>
 								</div>
-							</div>
-							<div className={cn('right')}>
-								<div className={cn('title')}>{current.title}</div>
-								<div className={cn('text')} dangerouslySetInnerHTML={{__html: current.text.replace(/\n/g, '<br/> <br/>')}}></div>
-								<div className={cn('video')}>
-									<video controls src={current.video} poster="/static/assets/bts.jpg"></video>
+								<div className={cn('field')}>
+									<span className={cn('fieldName')}>Жанр:</span>
+									<span>{current.genres}.</span>
+								</div>
+								<div className={cn('field')}>
+									<span className={cn('fieldName')}>Дәвамы:</span>
+									<span>{current.time} мин.</span>
+								</div>
+								<div className={cn('field')}>
+									<span className={cn('fieldName')}>Тавышлау:</span>
+									<span>{current.voice}.</span>
 								</div>
 								<br/>
-								<div id="vk_like"></div>
-								<br/>
-								<div id="vk_comments"></div>
+								<Button
+									as='a'
+									href={current.trailer}
+									color='green'
+									icon='video'
+									content='трейлер'
+								/>
+								<Button as='a' href={current.video} title='скачать' icon='download'></Button>
+
 							</div>
 						</div>
-						: 'Loading...'}
-					</Container>
-				</div>
-			</div>
+						<div className={cn('right')}>
+							<Header as='h1'>{current.title}</Header>
+							<div className={cn('text')} dangerouslySetInnerHTML={{__html: current.text.replace(/\n/g, '<br/> <br/>')}}></div>
+							<div className={cn('video')}>
+								<Video
+									preload='none'
+									poster="/static/assets/bts.jpg">
+									<source src={current.video} />
+								</Video>
+							</div>
+							<br/>
+							<div id="vk_like"></div>
+							<br/>
+							<div id="vk_comments"></div>
+						</div>
+					</div>
+					: <Dimmer active>
+						<Loader />
+					</Dimmer>}
+			</Container>
 		)
 	}
 }

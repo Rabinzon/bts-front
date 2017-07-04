@@ -1,12 +1,14 @@
 .show {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 18px 65px 18px;
+	margin-bottom:  65px;
 	position: relative;
 	width: 200px;
 	height: 300px;
 	position: relative;
 	text-decoration: none;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 .play {
 	fill: #fff;

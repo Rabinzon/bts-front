@@ -1,4 +1,6 @@
 import React from 'react';
+import { Menu } from 'semantic-ui-react'
+
 import classNames from 'helpers/classNames';
 import styles from './Tabs.css';
 
@@ -6,29 +8,31 @@ const cn = classNames(styles);
 
 class Tabs extends React.Component {
 	state = {
-		active: 'all'
+		activeItem: 'all'
 	}
 
-	onClick = active => () => {
-		this.props.handler(active);
-		this.setState({active});
+	handleItemClick = activeItem => () => {
+		this.props.handler(activeItem);
+		this.setState({activeItem});
 	}
 
-	renderLinks = ({active}) => ({text, val}, i) =>
-		<a key={i}
-			onClick={this.onClick(val)}
-			className={cn({
-				active: val === active,
-				tab: true
-			})}>
+	renderLinks = ({activeItem}) => ({text, val}, i) =>
+		<Menu.Item
+			key={i}
+			active={activeItem === val}
+			onClick={this.handleItemClick(val)}
+			className={cn('item')}
+			name={val}>
 			{text}
-		</a>;
+		</Menu.Item>;
 
 	render() {
 		const {list} = this.props;
 		return (
 			<div className={cn('tabs')}>
-				{list.map(this.renderLinks(this.state))}
+				<Menu secondary>
+					{list.map(this.renderLinks(this.state))}
+				</Menu>
 			</div>
 		);
 	}
