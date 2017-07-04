@@ -1,5 +1,6 @@
 import React from 'react';
 import Express from 'express';
+import compression from 'compression';
 import { match, RouterContext } from 'react-router';
 import routes from './routes.jsx';
 import { createStore } from 'redux';
@@ -7,11 +8,6 @@ import { Provider } from 'react-redux';
 import reducer from './redux/modules/reducer';
 import { renderToString } from 'react-dom/server';
 import getHtml from 'helpers/getHtml';
-
-import CONF  from 'app-config';
-const app = Express();
-
-app.use('/static', Express.static(__dirname + '/static'));
 
 const handleRender = (req, res) => {
 	const store = createStore(reducer);
@@ -26,6 +22,9 @@ const handleRender = (req, res) => {
 	});
 };
 
+const app = Express();
+app.use(compression());
+app.use('/static', Express.static(__dirname + '/static'));
 app.use(handleRender);
 
 app.listen(env.PORT, (err) => {
