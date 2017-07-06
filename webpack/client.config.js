@@ -35,7 +35,16 @@ module.exports = {
 				{
 					test: /\.jsx?$/,
 					exclude: /(node_modules|bower_components)/,
-					use:[{loader: 'happypack/loader'}]
+					use:[{
+						loader: 'babel-loader',
+						options : {
+							presets : [
+								"react",
+								"es2015",
+								"babel-preset-stage-0"
+							]
+						}
+					}]
 				}, {
 					test: /\.css/,
 					loader: ExtractTextPlugin.extract({

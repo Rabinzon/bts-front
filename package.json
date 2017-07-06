@@ -39,7 +39,6 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "forever": "^0.15.3",
-    "happypack": "^4.0.0-beta.1",
     "html-webpack-plugin": "^2.28.0",
     "html-webpack-template": "^6.0.1",
     "logger": "0.0.1",

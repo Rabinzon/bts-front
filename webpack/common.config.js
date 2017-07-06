@@ -61,7 +61,6 @@ const UglifyJs = () => {
 
 const plugins =  [
 	UglifyJs(),
-	new HappyPack(happyPackOptions),
 	new webpack.NoEmitOnErrorsPlugin(),
 	new webpack.DefinePlugin(envs),
 	new webpack.optimize.DedupePlugin(),
