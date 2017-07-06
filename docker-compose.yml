@@ -4,4 +4,4 @@ bts-front:
     hostname: bts-front
     restart: always
     ports:
-        - "8080:8080"
+        - "8585:8585"
