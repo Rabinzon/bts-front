@@ -1,6 +1,5 @@
 import React from 'react';
 import Express from 'express';
-import compression from 'compression';
 import { match, RouterContext } from 'react-router';
 import routes from './routes.jsx';
 import { createStore } from 'redux';
@@ -23,7 +22,6 @@ const handleRender = (req, res) => {
 };
 
 const app = Express();
-app.use(compression());
 app.use('/static', Express.static(__dirname + '/static'));
 app.use(handleRender);
 

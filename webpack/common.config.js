@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const HappyPack = require('HappyPack');
 
 const env = process.env;
 const production = env.NODE_ENV === 'production';
