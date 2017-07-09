@@ -340,7 +340,7 @@ export default html =>
 		        <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
 		        <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
 		        <script type="text/javascript">
-			VK.init({apiId: 6107508, onlyWidgets: true});
+			VK.init({apiId: 6107479, onlyWidgets: true});
 	</script>
 
 	        </head>
