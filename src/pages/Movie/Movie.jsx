@@ -18,7 +18,7 @@ class Movie extends React.Component {
 		const {location: {pathname}} = this.props;
 		const id = pathname.replace('/movie/', '');
 		if (global.VK) {
-			global.VK.Widgets.Like('vk_like', {type: "full"}, id);
+			global.VK.Widgets.Like('vk_like', {type: global.innerWidth > 540 ? 'full' : 'mini'}, id);
 			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
 			global.VK.Widgets.Group('vk_groups_mov', {mode: 3}, 103021137);
 		}
