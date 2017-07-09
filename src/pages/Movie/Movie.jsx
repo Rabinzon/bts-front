@@ -15,12 +15,12 @@ const cn = classNames(styles);
 class Movie extends React.Component {
 
 	componentWillMount() {
-		const {location: {pathname}, fetchOne} = this.props;
+		const {location: {pathname}} = this.props;
 		const id = pathname.replace('/movie/', '');
 		if (global.VK) {
 			global.VK.Widgets.Like('vk_like', {type: "full"}, id);
 			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
-			global.VK.Widgets.Group('vk_groups', {mode: 3}, 103021137);
+			global.VK.Widgets.Group('vk_groups_mov', {mode: 3}, 103021137);
 		}
 	}
 
@@ -75,7 +75,7 @@ class Movie extends React.Component {
 								<Button as='a' href={current.video} title='скачать' icon='download'></Button>
 								<br/>
 								<br/>
-								<div id="vk_groups"></div>
+								<div id="vk_groups_mov"></div>
 							</div>
 						</div>
 						<div className={cn('right')}>
