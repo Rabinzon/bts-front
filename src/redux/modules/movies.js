@@ -11,8 +11,7 @@ const initState = {
 	current: null
 };
 
-const shuffle = arr =>
-	arr.sort(() => 0.5 - Math.random());
+const reverse = arr => arr.reverse();
 
 const get = () => axios.get(CONFIG.api);
 
@@ -32,7 +31,7 @@ const pending = (state, payload) =>
 	({...state, fetching: true, data: null});
 
 const success = (state, payload) =>
-	({...state, fetching: false, fetched: true, data: shuffle(payload.data), movies: shuffle(payload.data)});
+	({...state, fetching: false, fetched: true, data: payload.data, movies: payload.data});
 
 const error = () => (state, payload) =>
 	({...state, fetching: false, fetched: false, error: payload});
