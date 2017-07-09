@@ -20,6 +20,7 @@ class Movie extends React.Component {
 		if (global.VK) {
 			global.VK.Widgets.Like('vk_like', {type: "full"}, id);
 			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
+			global.VK.Widgets.Group('vk_groups', {mode: 3}, 103021137);
 		}
 	}
 
@@ -72,7 +73,9 @@ class Movie extends React.Component {
 									content='трейлер'
 								/>
 								<Button as='a' href={current.video} title='скачать' icon='download'></Button>
-
+								<br/>
+								<br/>
+								<div id="vk_groups"></div>
 							</div>
 						</div>
 						<div className={cn('right')}>
