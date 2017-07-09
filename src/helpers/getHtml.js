@@ -277,6 +277,10 @@ export default html =>
 }
 .vk-wibgets{
 	display: flex;
+	align-items: center;
+}
+.save-vk{
+	margin-right: 10px;
 }
 .rh5v-Overlay_component {
     position: absolute;

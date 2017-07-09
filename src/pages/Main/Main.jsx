@@ -27,7 +27,6 @@ class Main extends React.Component {
 	componentWillMount() {
 		if (global.VK){
 			global.VK.Widgets.Group('vk_groups', {mode: 3}, 103021137);
-			global.VK.Widgets.Poll('vk_poll', {width: '200'}, '269145863_8f8f0430051cb3939c');
 		}
 	}
 
