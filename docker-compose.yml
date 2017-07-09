@@ -1,7 +1,7 @@
-bts-front:
+front-bts:
     build: .
-    container_name: bts-front
-    hostname: bts-front
+    container_name: front-bts
+    hostname: front-bts
     restart: always
     ports:
         - "8585:8585"
