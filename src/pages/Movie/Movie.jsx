@@ -14,15 +14,19 @@ const cn = classNames(styles);
 
 class Movie extends React.Component {
 
-	componentDidMount() {
+	componentWillMount() {
 		const {location: {pathname}, fetchOne} = this.props;
 		const id = pathname.replace('/movie/', '');
-		fetchOne(id);
-		console.log(id);
 		if (global.VK) {
 			global.VK.Widgets.Like('vk_like', {type: "full"}, id);
 			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
 		}
+	}
+
+	componentDidMount() {
+		const {location: {pathname}, fetchOne} = this.props;
+		const id = pathname.replace('/movie/', '');
+		fetchOne(id);
 	}
 
 	componentWillUnmount() {
@@ -36,7 +40,6 @@ class Movie extends React.Component {
 
 	render() {
 		const {movie: current} = this.props;
-		console.log(current);
 		return (
 			<Container>
 				{current ?
