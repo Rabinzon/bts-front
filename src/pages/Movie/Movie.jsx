@@ -18,6 +18,11 @@ class Movie extends React.Component {
 		const {location: {pathname}, fetchOne} = this.props;
 		const id = pathname.replace('/movie/', '');
 		fetchOne(id);
+		console.log(id);
+		if (global.VK) {
+			global.VK.Widgets.Like('vk_like', {type: "full"}, id);
+			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
+		}
 	}
 
 	componentWillUnmount() {
@@ -31,6 +36,7 @@ class Movie extends React.Component {
 
 	render() {
 		const {movie: current} = this.props;
+		console.log(current);
 		return (
 			<Container>
 				{current ?
@@ -70,14 +76,18 @@ class Movie extends React.Component {
 							<Header as='h1'>{current.title}</Header>
 							<div className={cn('text')} dangerouslySetInnerHTML={{__html: current.text.replace(/\n/g, '<br/> <br/>')}}></div>
 							<div className={cn('video')}>
-								<Video
+								<video
 									preload='none'
+									controls
 									poster="/static/assets/bts.jpg">
 									<source src={current.video} />
-								</Video>
+								</video>
+							</div>
+							<div className="vk-wibgets">
+								<div className="save-vk" dangerouslySetInnerHTML={{__html: global.VK.Share.button(this.props.location.url, {type: 'button'})}}></div>
+								<div id="vk_like"></div>
 							</div>
 							<br/>
-							<div id="vk_like"></div>
 							<br/>
 							<div id="vk_comments"></div>
 						</div>

@@ -61,6 +61,12 @@
 	display: none;
 }
 
+.wibget{
+	position: absolute;
+	right: 0;
+	top: 187px;
+}
+
 @media screen and (max-width: 430px) {
 	.search {
 		display: none;
@@ -69,7 +75,7 @@
 
 
 @media screen and (max-width: 768px) {
-	.toolbar{
+	.toolbar, .wibget {
 		display: none;
 	}
 	.search-bar {

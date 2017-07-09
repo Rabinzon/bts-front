@@ -24,6 +24,13 @@ class Main extends React.Component {
 		this.props.search(value);
 	}
 
+	componentWillMount() {
+		if (global.VK){
+			global.VK.Widgets.Group('vk_groups', {mode: 3}, 103021137);
+			global.VK.Widgets.Poll('vk_poll', {width: '200'}, '269145863_8f8f0430051cb3939c');
+		}
+	}
+
 	componentDidMount() {
 		this.props.fetch();
 	}
@@ -44,6 +51,10 @@ class Main extends React.Component {
 					<div className={cn('search-bar')}>
 						<Header size='large'>{movies && movies.length} фильм</Header>
 						<Search handle={this.search} />
+					</div>
+					<div className={cn('wibget')}>
+						<div id="vk_groups"></div>
+						<div id="vk_poll"></div>
 					</div>
 					<div className={cn('showWrapper')}>
 						{fetched ?

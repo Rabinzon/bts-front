@@ -275,7 +275,9 @@ export default html =>
 .rh5v-Fullscreen_button:focus {
     outline: 0;
 }
-
+.vk-wibgets{
+	display: flex;
+}
 .rh5v-Overlay_component {
     position: absolute;
     top: 0;
@@ -331,6 +333,12 @@ export default html =>
 				<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 				<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
 		        <link href="static/main.css" rel="stylesheet" type="text/css" charSet="UTF-8">
+		        <script type="text/javascript" src="//vk.com/js/api/openapi.js?146"></script>
+		        <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+		        <script type="text/javascript">
+			VK.init({apiId: 6107508, onlyWidgets: true});
+	</script>
+
 	        </head>
 	        <body>
 		        <div id="app">${html}</div>
