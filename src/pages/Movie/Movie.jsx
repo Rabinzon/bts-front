@@ -107,6 +107,7 @@ class Movie extends React.Component {
 							<div className="vk-wibgets">
 								<div className="save-vk" dangerouslySetInnerHTML={{__html: global.VK.Share.button(this.props.location.url, {type: 'button'})}}></div>
 								<div id="vk_like"></div>
+								<iframe src="https://money.yandex.ru/quickpay/button-widget?targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82&default-sum=100&button-text=13&any-card-payment-type=on&button-size=s&button-color=orange&successURL=&quickpay=small&account=410014304147436&" width="127" height="25" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
 							</div>
 							<br/>
 							<br/>

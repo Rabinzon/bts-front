@@ -279,6 +279,10 @@ export default html =>
 	display: flex;
 	align-items: center;
 }
+
+.vk-wibgets iframe {
+	margin-left: 10px;
+}
 .save-vk{
 	margin-right: 10px;
 }

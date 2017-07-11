@@ -93,3 +93,7 @@
 		justify-content: space-around;
 	}
 }
+
+iframe {
+	border: none;
+}
