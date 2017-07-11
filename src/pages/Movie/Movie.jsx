@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {bindActionCreators} from 'redux';
+import R from 'ramda';
+
 import {fetchOne} from '../../redux/modules/movie';
 import { Header, Container, Dimmer, Loader, Button } from 'semantic-ui-react'
 import { DefaultPlayer as Video } from 'react-html5video';
@@ -11,6 +13,14 @@ import styles from './Movie.css';
 
 const cn = classNames(styles);
 
+const infoText = {
+	year: 'Чыгу елы',
+	genres: 'Жанр',
+	time: 'Дәвамы',
+	voice: 'Тавышлау',
+	translator: 'Тәрҗемә',
+	editing: 'Монтаж'
+};
 
 class Movie extends React.Component {
 
@@ -18,7 +28,7 @@ class Movie extends React.Component {
 		const {location: {pathname}} = this.props;
 		const id = pathname.replace('/movie/', '');
 		if (global.VK) {
-			global.VK.Widgets.Like('vk_like', {type: global.innerWidth > 540 ? 'full' : 'mini'}, id);
+			global.VK.Widgets.Like('vk_like', {type: 'mini'}, id);
 			global.VK.Widgets.Comments('vk_comments', {limit: 20, attach: "*"}, id);
 			global.VK.Widgets.Group('vk_groups_mov', {mode: 3}, 103021137);
 		}
@@ -39,8 +49,28 @@ class Movie extends React.Component {
 		}
 	}
 
+	renderInfoField = (value, key) => {
+		if (!value) {
+			return null;
+		}
+		return (
+			<div className={cn('field')} key={key}>
+				<span className={cn('fieldName')}>
+					{infoText[key]}:
+				</span>
+				<span>{key === 'time' ? value + ' мин' : value}.</span>
+			</div>
+		)
+	}
+
 	render() {
 		const {movie: current} = this.props;
+		const infoFields = R.pipe(
+			R.pickBy((val, key) => infoText[key]),
+			R.mapObjIndexed(this.renderInfoField),
+			R.values
+		)(current);
+
 		return (
 			<Container>
 				{current ?
@@ -48,22 +78,7 @@ class Movie extends React.Component {
 						<div className={cn('left')}>
 							<img src={current.img} className={cn('img')} alt=""/>
 							<div className={cn('info')}>
-								<div className={cn('field')}>
-									<span className={cn('fieldName')}>Чыгу елы:</span>
-									<span>{current.year}.</span>
-								</div>
-								<div className={cn('field')}>
-									<span className={cn('fieldName')}>Жанр:</span>
-									<span>{current.genres}.</span>
-								</div>
-								<div className={cn('field')}>
-									<span className={cn('fieldName')}>Дәвамы:</span>
-									<span>{current.time} мин.</span>
-								</div>
-								<div className={cn('field')}>
-									<span className={cn('fieldName')}>Тавышлау:</span>
-									<span>{current.voice}.</span>
-								</div>
+								{ infoFields }
 								<br/>
 								<Button
 									as='a'
